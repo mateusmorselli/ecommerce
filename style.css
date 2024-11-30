@@ -35,6 +35,15 @@ nav a {
     color: #fff;
 }
 
+.toggle-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
 .hero button {
     background-color: #fff;
     color: #333;
@@ -45,15 +54,19 @@ nav a {
 }
 
 .products {
-    padding: 20px;
     background-color: rgb(28, 102, 175);
     border: 1px solid #333;
     cursor: pointer;
+    color: white;
+    padding: 50px;
+    margin: 50px 0;
+    border-radius: 5px;
+    font-size: 20px; 
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 3fr);
+    grid-template-columns: repeat(1, 3fr);
     gap: 50px;    
 }
 

@@ -17,18 +17,24 @@ function renderProducts()
 {
     let productGrid = document.querySelector('.product-grid');
     productGrid.innerHTML = '';
-    products.forEach((product) => {        
+    products.forEach((product) => {
+        
+        let boxDiv = document.createElement('div');
+        boxDiv.className = 'box';
+        boxDiv.setAttribute('data-aos', 'fade-up');
+
         let productDiv = document.createElement('div');
         productDiv.className = 'product';
-        productDiv.innerHTML = `
+        productDiv.innerHTML = `            
             <img src="${product.image}" alt=${product.name}>
             <h3>${product.name}</h3>
             <p>${product.price}</p>
-            <button>Adicionar ao carrinho</button>        
+            <button>Adicionar ao carrinho</button>
         `;
 
         productDiv.querySelector('button').addEventListener('click', () => 
         addToCart(product.id));
+        boxDiv.appendChild(productDiv);
         productGrid.appendChild(productDiv);
     });
 }
@@ -71,10 +77,20 @@ document.getElementById('checkout').addEventListener('click', () =>
 {
     if (cart.length === 0)
     {
-        alert("Seu carrinho está vazio!");
+        swal ({
+            title: "Algo não está certo",
+            text: "Seu carrinho está vazio!",
+            icon: 'error',
+            button: "fechar",
+            });
     } else
     {
-        alert("Pedido realizado com sucesso!");
+        swal ({
+            title: "Boa!",
+            text: "Compra realizada com sucesso!",
+            icon: 'success',
+            button: "fechar",
+            });
         cart = [];
         renderCart();
     }
